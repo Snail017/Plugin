@@ -4,8 +4,10 @@
       class="dialog message"
       tabindex="-1"
       v-show="visible"
-      @click.self="handleWrapperClick"
+      @click="handleWrapperClick"
       role="dialog"
+      aria-modal="true"
+      :aria-label="title || 'dialog'"
     >
       <div class="bg"></div>
       <div class="pop_up">
@@ -55,6 +57,7 @@
           <button
             type="button"
             class="el-message-box__headerbtn button"
+            aria-label="Close"
             v-if="showClose"
             @click="
               handleAction(distinguishCancelAndClose ? 'close' : 'cancel')
